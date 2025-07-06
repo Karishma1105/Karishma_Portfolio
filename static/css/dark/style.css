@@ -99,6 +99,13 @@ Primary use:    pxdraft
         left: 0;
         right: auto;
         width: 100%; } }
+        .search-wrapper {
+  position: relative;
+  width: 250px;
+}
+
+
+
 
 /* Mobile 
 -----------------------------*/
@@ -150,7 +157,7 @@ Primary use:    pxdraft
   .footer .nav a {
     color: #fff;
     font-size: 14px;
-    margin-right: 17px; }
+    margin-right: 0px; }
     .theme-light .footer .nav a {
       color: #011627; }
     .footer .nav a:hover {
@@ -624,22 +631,33 @@ body {
   margin: 0; }
 
 /* New project card style */
-.new-project-card {
-  background: linear-gradient(145deg, rgba(255,255,255,0.9), rgba(245,245,245,0.9));
-  border-radius: 12px;
-  padding: 25px 20px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+
+
+.section-title h2 span::before {
+  right: 100%;
+  margin-right: 12px;
+}
+.section-title h2 span::after {
+  left: 100%;
+  margin-left: 12px;
 }
 
-/* Hover: lift and stronger shadow */
+/* Card base style */
+.new-project-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* Hover effect for card */
 .new-project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(247, 23, 53, 0.4); /* subtle red glow */
+  background: rgba(247, 23, 53, 0.08); /* slightly brighter bg on hover */
 }
 
 /* Icon styling */
@@ -647,38 +665,40 @@ body {
   font-size: 36px;
   color: #f71735;
   margin-bottom: 12px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 /* Icon pulse effect on hover */
 .new-project-card:hover .project-icon {
   transform: scale(1.2);
+  color: #ff3344; /* brighter red on hover */
 }
 
 /* Title */
 .new-project-card h5 {
   font-size: 18px;
   font-weight: 600;
-  margin-bottom: 10px;
-  color: #222;
+  margin-bottom: 8px;
+  color: #fff;
 }
 
 /* Description */
 .new-project-card p {
   font-size: 14px;
-  color: #555;
+  color: rgba(255, 255, 255, 0.75);
   margin-bottom: 8px;
 }
 
 /* Technologies text */
 .new-project-card .tech {
   font-size: 13px;
-  color: #888;
+  color: rgba(255, 255, 255, 0.5);
   margin-top: auto;
 }
 
 /* Link styling */
 .new-project-card a {
+  display: inline-block;
   margin-top: 10px;
   color: #f71735;
   font-size: 14px;
@@ -687,16 +707,8 @@ body {
 }
 
 .new-project-card a:hover {
-  color: #c91028;
+  color: #ff3344; /* brighter red on hover */
   text-decoration: underline;
-}
-
-/* Center last card on small screens */
-@media (max-width: 991.98px) {
-  .projects .row > div:nth-child(3) {
-    margin-left: auto;
-    margin-right: auto;
-  }
 }
 
 
@@ -916,81 +928,111 @@ body {
     margin: 0;
     color: #fff; }
 
-/* Contact Us - Modern Style */
-.contact-info, .contact-form {
-  background: rgba(255, 255, 255, 0.03);
+/* Contact Info Modern */
+.contact-info-modern {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
   padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  text-align: center;
+  color: #fff;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.contact-info:hover, .contact-form:hover {
+
+.contact-info-modern:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 16px rgba(247, 23, 53, 0.4);
 }
 
-.contact-info .contact-name {
-  font-size: 15px;
-  margin-bottom: 10px;
-  font-weight: 500;
-  color: #fff;
-}
-
-.contact-info .sm-title h3 {
-  font-size: 16px;
-  font-weight: 600;
-  color: #fff;
-  border-left: 3px solid #f71735;
-  padding-left: 10px;
-}
-
-.contact-info .social-share a {
-  color: #fff;
-  font-size: 22px;
-  margin-right: 12px;
-  transition: color 0.3s ease;
-}
-.contact-info .social-share a:hover {
+.contact-info-modern h4 {
   color: #f71735;
+  margin-bottom: 10px;
+  font-size: 20px;
 }
 
-.contact-form .form-group {
+.contact-info-modern p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Social Icons */
+.social-icons a {
+  color: #f71735;
+  font-size: 20px;
+  margin: 0 8px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #fff;
+  transform: scale(1.2);
+}
+
+/* Contact Form Modern */
+.contact-form-modern {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 25px;
+  color: #fff;
+}
+
+.contact-form-modern {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 500px;
+  margin: auto;
+  color: #fff;
+}
+
+.contact-form-modern .form-title {
+  text-align: center;
+  color: #f71735;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Input fields and textarea */
+.contact-form-modern .form-control {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 12px;
   margin-bottom: 15px;
+  transition: background 0.3s ease;
 }
 
-.contact-form .form-control {
-  background: rgba(255,255,255,0.05);
+.contact-form-modern .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.contact-form-modern .form-control:focus {
+  background: rgba(247, 23, 53, 0.2);
+  outline: none;
+}
+
+/* Button */
+.btn-contact {
+  background: #f71735;
   color: #fff;
   border: none;
-  border-bottom: 2px solid rgba(255,255,255,0.2);
-  border-radius: 0;
-  font-size: 15px;
-  padding: 8px 0;
-  transition: border-color 0.3s ease;
-}
-.contact-form .form-control:focus {
-  border-color: #f71735;
-  box-shadow: none;
+  padding: 8px 24px;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
-.placeholder {
-  position: absolute;
-  top: 15px;
-  left: 0;
-  right: 0;
-  text-align: center;
-  opacity: 0.03;
-  pointer-events: none;
+.btn-contact:hover {
+  background: #c91028;
+  transform: translateY(-2px);
 }
-.placeholder h5 {
-  font-size: 7vw;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: transparent;
-  -webkit-text-stroke: 1px #fff;
-  letter-spacing: 0.5rem;
-  margin: 0;
-}
+
 
 @media (max-width: 767px) {
   .placeholder h5 {
